@@ -1,3 +1,3 @@
-module.exports = class Cart {
+export default class Cart {
   constructor() {}
-};
+}

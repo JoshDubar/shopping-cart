@@ -1,4 +1,4 @@
-const Cart = require("../Cart");
+import Cart from "../Cart";
 
 describe("Cart", () => {
   it("basic", () => {
