@@ -27,7 +27,7 @@ export default class BuyXPayForY implements IPricingRule {
     return originalPrice - finalPrice;
   }
 
-  private priceOfItems(items: Item[]) {
+  private priceOfItems(items: Item[]): number {
     return items.reduce((a, b) => a + b.getValue(), 0);
   }
 }
