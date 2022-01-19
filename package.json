@@ -9,6 +9,9 @@
     "dev": "nodemon src/app.ts",
     "test": "jest"
   },
+  "jest": {
+    "collectCoverage": true
+  },
   "devDependencies": {
     "@babel/core": "^7.16.7",
     "@babel/preset-env": "^7.16.8",

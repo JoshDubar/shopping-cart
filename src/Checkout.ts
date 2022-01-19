@@ -19,14 +19,14 @@ export default class Checkout {
     return this.priceOfItems() - discount;
   }
 
-  private applyPricingRules() {
+  private applyPricingRules(): number {
     return this.pricingRules.reduce(
       (value, rule) => value + rule.apply(this.items),
       0
     );
   }
 
-  private priceOfItems() {
+  private priceOfItems(): number {
     return this.items.reduce((a, b) => a + b.getValue(), 0);
   }
 }
