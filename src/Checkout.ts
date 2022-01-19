@@ -1,5 +1,6 @@
 import Item from "./Item";
 import IPricingRule from "./PricingRule/IPricingRule";
+import { totalPriceOfItems } from "./utils";
 
 export default class Checkout {
   private pricingRules: IPricingRule[];
@@ -16,7 +17,7 @@ export default class Checkout {
 
   public total(): number {
     const discount = this.applyPricingRules();
-    return this.priceOfItems() - discount;
+    return totalPriceOfItems(this.items) - discount;
   }
 
   private applyPricingRules(): number {
@@ -24,9 +25,5 @@ export default class Checkout {
       (value, rule) => value + rule.apply(this.items),
       0
     );
-  }
-
-  private priceOfItems(): number {
-    return this.items.reduce((a, b) => a + b.getValue(), 0);
   }
 }

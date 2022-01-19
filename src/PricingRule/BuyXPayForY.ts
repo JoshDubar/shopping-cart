@@ -1,4 +1,5 @@
 import Item from "../Item";
+import { totalPriceOfItems } from "../utils";
 import IPricingRule from "./IPricingRule";
 
 export default class BuyXPayForY implements IPricingRule {
@@ -14,7 +15,7 @@ export default class BuyXPayForY implements IPricingRule {
 
   public apply(items: Item[]): number {
     const validItems = items.filter((item) => item.equals(this.item));
-    const originalPrice = this.priceOfItems(validItems);
+    const originalPrice = totalPriceOfItems(validItems);
     const timesToApplyDiscount = Math.floor(
       validItems.length / this.quantityBought
     );
@@ -25,9 +26,5 @@ export default class BuyXPayForY implements IPricingRule {
         (this.quantityBought - this.quantityPaidFor);
 
     return originalPrice - finalPrice;
-  }
-
-  private priceOfItems(items: Item[]): number {
-    return items.reduce((a, b) => a + b.getValue(), 0);
   }
 }
