@@ -30,10 +30,6 @@ export default class BuyXGetY implements IPricingRule {
     return itemsToReceiveForFree * this.received.getValue();
   }
 
-  // buy 3 get 2
-  // [x,x,x,x,x,x]
-  // 6 / 3 = 2 * 2
-  // [y,y,y,y,y,y]
   private itemsToReceiveCount(
     numberItemsBought: number,
     numberItemsReceived: number
